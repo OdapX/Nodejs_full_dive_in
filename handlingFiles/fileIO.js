@@ -18,7 +18,7 @@ fs.createReadStream("random.csv")
   })
   .on("end", () => {
     results.map((rs) => {
-      rs.name == "yahya" ? console.log(rs) : console.log("not yahya", rs);
+      rs.name == "awec" ? console.log(rs) : console.log("not found", rs);
     });
     console.log("done !");
   });

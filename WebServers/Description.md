@@ -1,6 +1,6 @@
 # What's this part about ?
 
-### Before starting to build web server on any framework available out there, it's essential to go through how to build a bare server with pure built-in Node.js abilities.
+### Before starting to build web server on any framework available out there, it's essential to go through how to build a bare server with pure built-in Node.js abilities sort to understand streams.
 
 ### The server here counts the visits , and show when was the last visit .
 

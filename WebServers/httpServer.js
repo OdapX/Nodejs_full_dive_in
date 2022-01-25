@@ -1,3 +1,13 @@
+/* Creating a simple HTTP server that will keep track of the number of visits to the server and the
+last time a visit occurred.
+
+# **Step 2:** Create a function that will be called whenever a request is made to the server.
+# 
+# **Step 3:** Create a function that will be called whenever a request is made to the server.
+# 
+# **Step 4:** Create a function that will be called whenever a request is made to the server.
+# 
+# **Step 5:** Create a function that will be called */
 const http = require("http");
 let visits = 0;
 let last_visit = Date.now();
@@ -41,6 +51,7 @@ const server = http.createServer((req, res) => {
     res.write("</body>");
 
     res.write("</html>");
+    res.end();
 
     last_visit = Date.now();
   } else {
