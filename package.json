@@ -1,0 +1,25 @@
+{
+  "name": "Node_udemy_Sessions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "csv-parse": "^5.0.4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xvendor/Nodejs_full_dive_in.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xvendor/Nodejs_full_dive_in/issues"
+  },
+  "homepage": "https://github.com/xvendor/Nodejs_full_dive_in#readme",
+  "description": ""
+}
