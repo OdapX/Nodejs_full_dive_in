@@ -1,6 +1,6 @@
 const express = require("express");
 const cluster = require("cluster");
-
+const os = require("os");
 const PORT = 8000;
 
 const app = express();
@@ -21,11 +21,19 @@ app.get("/delay", (req, res) => {
 });
 
 if (cluster.isMaster) {
-  console.log("Master forking...");
-  cluster.fork();
-  cluster.fork();
+  //this is maximizing clustering according to the piece of hardware used
+  console.log(os.cpus().length); //number of cpu cores available in ur hardware
+  for (let i = 0; i < os.cpus().length; i++) {
+    cluster.fork();
+  }
 } else {
   app.listen(PORT, () => {
     console.log(`worker process created with pid ${process.pid} port ${PORT}`);
   });
 }
+
+/*
+ In real life we usually use pm2 package -process Manager -  that makes our life much easier 
+ but it's good to know clustering as it's what used by pm2 under the hood
+
+*/
