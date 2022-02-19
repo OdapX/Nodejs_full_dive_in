@@ -2,18 +2,21 @@ const axios = require("axios");
 const levels = { aya: 1, adam: 2 };
 
 const anew = { ...levels, adam: 3 };
-var API_KEY = "25692877-09657375b21b135b913d0923b";
-var URL =
-  "https://pixabay.com/api/?key=25692877-09657375b21b135b913d0923b&category=heath&image_type=photo";
-const fe = async () => {
-  const res = await axios({
+
+const Images_List = [];
+
+const Get_Images = async (category) => {
+  const response = await axios({
     method: "GET",
-    url: URL,
+    url: `https://pixabay.com/api/?key=25692877-09657375b21b135b913d0923b&category=${category}&image_type=photo`,
   }).catch((error) => {
     console.log(error);
   });
-
-  console.log(res.data.hits[0].webformatURL);
+  for (let i = 0; i < 10; i++) {
+    Images_List.push(response.data.hits[i].webformatURL);
+  }
 };
 
-fe();
+Get_Images("food").then(() => {
+  console.log(Images_List);
+});
