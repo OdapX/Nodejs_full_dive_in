@@ -1,4 +1,5 @@
-const http = require("http");
+const fs = require("fs");
+const https = require("https");
 const express = require("express");
 const helmet = require("helmet");
 const app = express();
@@ -16,16 +17,22 @@ const Auth_options = {
   CLIENT_ID: configs.CLIENT_ID,
   CLIENT_SECRET: configs.CLIENT_SECRET,
 };
-passport.use(new Strategy());
+// passport.use(new Strategy());
 
-app.get("/", (req, res) => {
+app.get("/sensitive", (req, res) => {
   res.send("sensitive data");
 });
 
-const server = http.createServer(app);
+const server = https.createServer(
+  {
+    key: fs.readFileSync("key.pem"),
+    cert: fs.readFileSync("cert.pem"),
+  },
+  app
+);
 
 server.listen(3000, () => {
-  console.log("listening on port 30000");
+  console.log("listening on port 3000");
 });
 
 function verifyCallback(accessToken, refreshToken, profile, done) {
