@@ -1,0 +1,12 @@
+type Query {
+  Orders: [Order]
+}
+type Order {
+  id: ID!
+  date: String
+  items: [Item]
+}
+type Item {
+  product: Product!
+  quantity: Int!
+}
