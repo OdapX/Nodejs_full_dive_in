@@ -1,4 +1,4 @@
-module.exports = [
+const orders = [
   {
     id: "Order1",
     date: "02-02-2022",
@@ -14,3 +14,9 @@ module.exports = [
     ],
   },
 ];
+
+function GetOrders() {
+  return orders;
+}
+
+module.exports = GetOrders;
